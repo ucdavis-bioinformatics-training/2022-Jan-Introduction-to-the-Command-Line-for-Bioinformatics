@@ -29,8 +29,14 @@ navigation:
     url: cli/command-line-intro2
   - title: Introduction to the Command Line 3
     url: cli/command-line-intro3
-  - title: Day 3 Homework Solution
-    url: cli/day3_homework_solution
+
+  - heading: Software Installation
+  - title: Installation using make and cmake
+    url: cli/software
+  - title: Conda
+    url: cli/conda
+#  - title: Day 3 Homework Solution
+#    url: cli/day3_homework_solution
 
   - heading: ETC
   - title: Closing thoughts
