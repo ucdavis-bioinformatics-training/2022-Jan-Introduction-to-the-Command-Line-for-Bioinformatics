@@ -1,9 +1,9 @@
 All documentation for the workshop is best viewed from the github.io pages
 
-[Documentation](https://ucdavis-bioinformatics-training.github.io/2021-Oct-Introduction-to-the-Command-Line-for-Bioinformatics/)
+[Documentation](https://ucdavis-bioinformatics-training.github.io/2022-Jan-Introduction-to-the-Command-Line-for-Bioinformatics/)
 
 Introduction to the Command Line for Bioinformatics  
-Oct 18th, 20th, 22nd 2021 2 p.m. - 5 p.m.  
+Jan 31st, Feb 2nd, 4th 2022 2 p.m. - 5 p.m.  
 Organizer - Bioinformatics Core  
 Contact - UC Davis Bioinformatics Core, training.bioinformatics@ucdavis.edu
 
@@ -15,7 +15,7 @@ Participants must have a Mac, a Linux machine, or Windows 10.
 
 The registration fee is $300 for UC students, postdocs, staff and faculty, $450 for Non-UC academic or non-profit participants and $600 for other participants. We accept credit cards, as well as UC Davis recharge accounts, for payment. We are pleased to be able to offer three group pricing bundle options for labs with multiple registrants: 15% off registration for groups of 3-5, 25% off registration for groups of 6-10, and custom instructional packages for groups larger than 10. If you are interested in one of these pricing options, please contact us at training.bioinformatics@ucdavis.edu for a custom coupon code.
 
-Registration closes on Oct 17th, 2021.
+Registration closes on Jan 30th, 2022.
 
 ### FAQ
 
@@ -23,7 +23,7 @@ Who should attend? … Prior course participants have included faculty, post doc
 
 What are the prerequisites? … There are no prerequisites other than an enthusiasm for learning bioinformatics data analysis.
 
-What do I need? … You will need access to a computer with a recent version of R, Rstudio, and Java installed, and an application that allows them to ssh into a server (e.g. Windows PowerShell, Terminal or iTerm2 on a Mac, or Bash for Linux), as well as a reliable internet connection. If your department does not allow you to install software on your computer, please contact us ahead of time.
+What do I need? … You will need to bring laptop with a reliable connection to the internet, installed with Windows 10 or higher, Mac, or Linux.
 
 Can I bring my own data? … We will provide experimental datasets for use during the workshop, as this helps to keep the workshop moving. There will be time, however, to discuss your own datasets and how you might work with them outside of the workshop.
 
@@ -38,4 +38,4 @@ If you have any questions, please don’t hesitate to contact us at training.bio
 
 ### Register
 
-[Register for Introduction to the Command Line for Bioinformatics at the Genome Center Event Registration site.](https://registration.genomecenter.ucdavis.edu/events/cli_oct_2021/)
+[Register for Introduction to the Command Line for Bioinformatics at the Genome Center Event Registration site.](https://registration.genomecenter.ucdavis.edu/events/cli_jan_2022_01_31/)
