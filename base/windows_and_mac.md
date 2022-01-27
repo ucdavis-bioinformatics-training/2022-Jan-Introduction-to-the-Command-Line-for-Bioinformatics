@@ -3,6 +3,12 @@ Setting up Windows 10 for Command-Line
 
 In order to get a command line terminal for Windows 10, you will need to enable the WSL (Windows Subsystem for Linux) and install Ubuntu. Follow [these instructions](https://linuxhint.com/install_ubuntu_windows_10_wsl/) for installation.
 
+Once you have installed the Ubuntu terminal, open one and copy and paste these commands:
+
+	apt install aptitude
+	aptitude install make
+	aptitude install cmake
+
 
 Setting up a Mac for Command-Line
 -----------------------------------
