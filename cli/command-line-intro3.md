@@ -127,9 +127,9 @@ More pipes
 
 Now, let's delve into pipes a little more. Pipes are a very powerful way to look at and manipulate complex data using a series of simple programs. Let's look at some fastq files. Get a few small fastq files:
 
-    wget https://raw.githubusercontent.com/ucdavis-bioinformatics-training/2021-June-Introduction-to-the-Command-Line-for-Bioinformatics/master/cli/C61.subset.fq.gz -O C61.subset.fq.gz
-    wget https://raw.githubusercontent.com/ucdavis-bioinformatics-training/2021-June-Introduction-to-the-Command-Line-for-Bioinformatics/master/cli/I561.subset.fq.gz -O I561.subset.fq.gz
-    wget https://raw.githubusercontent.com/ucdavis-bioinformatics-training/2021-June-Introduction-to-the-Command-Line-for-Bioinformatics/master/cli/I894.subset.fq.gz -O I894.subset.fq.gz
+    wget https://raw.githubusercontent.com/ucdavis-bioinformatics-training/2022-Jan-Introduction-to-the-Command-Line-for-Bioinformatics/master/cli/C61.subset.fq.gz -O C61.subset.fq.gz
+    wget https://raw.githubusercontent.com/ucdavis-bioinformatics-training/2022-Jan-Introduction-to-the-Command-Line-for-Bioinformatics/master/cli/I561.subset.fq.gz -O I561.subset.fq.gz
+    wget https://raw.githubusercontent.com/ucdavis-bioinformatics-training/2022-Jan-Introduction-to-the-Command-Line-for-Bioinformatics/master/cli/I894.subset.fq.gz -O I894.subset.fq.gz
 
 Since the files are gzipped files we need to use "zcat" to look at them (mac users may have to use "gzcat"). zcat is just like cat except for gzipped files:
 

@@ -1,13 +1,13 @@
 Installing Simple Bioinformatics Software
 ===========================================
 
-**1\.** Let's spend some more time installing software. We will first install an Illumina read trimmer called **sickle** written by members of the Bioinformatics Core. The source code for many bioinformatics software are on github.... sickle is found on the [Bioinformatics Core github page](https://github.com/ucdavis-bioinformatics).
+**1\.** Let's spend some time installing software. We will first install an Illumina read trimmer called **sickle** written by members of the Bioinformatics Core. The source code for many bioinformatics software are on github.... sickle is found on the [Bioinformatics Core github page](https://github.com/ucdavis-bioinformatics).
 
 ---
 
 **2\.** Find sickle and navigate to the page. Click on "Clone or Download" and copy the URL. In your home directory, create a "software" directory and go into it. In order to clone (get a copy of) the repository, we need to use the "git" command. Clone the git repository in the software directory:
 
-	cd /share/workshop/$USER/
+	cd
 	mkdir software
 	cd software
 	git clone https://github.com/ucdavis-bioinformatics/sickle.git
@@ -57,7 +57,7 @@ Notice a few things. First, in order to assign a new value to a variable, we spe
 
 **7\.** Now you should be able to run sickle from any directory. Go back to your home directory and try to run sickle:
 
-	cd /share/workshop/$USER/
+	cd
 	sickle
 	sickle pe
 
@@ -65,7 +65,7 @@ Even though sickle is not in the current directory, it is run from the correct d
 
 ---
 
-**8\.** There is a problem, however. The "export" command will only work for this session. If you log out and log back in, you will have to do it again. Let's make it so that the export command happens automatically when you log in. In order to do this, we need to edit the ".bash_profile" (or sometimes ".bashrc") file. Use the "nano" editor to edit the file, which is located in your home directory:
+**8\.** There is a problem, however. The "export" command will only work for this session. If you log out and log back in, you will have to do it again. Let's make it so that the export command happens automatically when you log in. In order to do this, we need to edit the ".bash_profile" (or sometimes ".bashrc") file. Use the "nano" editor to edit the file, which is located in your home directory (if it doesn't exist, this will create it):
 
 	nano ~/.bash_profile
 
@@ -77,24 +77,24 @@ We should also add "." to our PATH so that we can run things that are in our cur
 
 ---
 
-**9\.** Now, let's try installing something a little trickier.... an alignment format manipulation software called "samtools". First, go to the [samtools website](http://www.htslib.org). Click on the blue "Source Release Details" download button. Right click (or your equivalent) on the "samtools-1.10" link and copy the link location. Use the "wget" command to retrieve the file. So it will look like this (go back to your workshop directory first):
+**9\.** Now, let's try installing something a little trickier.... an alignment format manipulation software called "samtools". First, go to the [samtools website](http://www.htslib.org). Click on the blue "Source Release Details" download button. Right click (or your equivalent) on the "samtools-1.14" link and copy the link location. Use the "wget" command to retrieve the file. So it will look like this (go back to your software directory first):
 
-	cd /share/workshop/$USER/
-	wget https://github.com/samtools/samtools/releases/download/1.10/samtools-1.10.tar.bz2
+	cd ~/software
+	wget https://github.com/samtools/samtools/releases/download/1.14/samtools-1.14.tar.bz2
 
 ---
 
 **10\.** Now you should have the "samtools-1.9.tar.bz2" file in your home directory. Next use the "tar" command to extract the archive from the file:
 
-	tar -x -v -j -f samtools-1.10.tar.bz2
+	tar -x -v -j -f samtools-1.14.tar.bz2
 
-The "-x" is the extract flag, "-v" is verbose informational output, "-j" specifies the format of the compression (in this case bzip2), and "-f" specifies the file. Now you should have a directory called "samtools-1.7".
+The "-x" is the extract flag, "-v" is verbose informational output, "-j" specifies the format of the compression (in this case bzip2), and "-f" specifies the file. Now you should have a directory called "samtools-1.14".
 
 ---
 
 **11\.** Go into that directory and look at the files:
 
-	cd samtools-1.10
+	cd samtools-1.14
 	ls
 
 Take a look at the README file:
@@ -103,15 +103,15 @@ Take a look at the README file:
 
 This gives you instructions on how to install samtools, however, we're going to do something a little different. We are going to specify an installation directory. So first, let's create that directory:
 
-	mkdir /share/workshop/$USER/software/samtools
+	mkdir ~/software/samtools_install
 
-This creates a new, empty "samtools" directory in our previously created "software" directory.
+This creates a new, empty "samtools_install" directory in our previously created "software" directory.
 
 ---
 
-**12\.** Now, you will notice that the "samtools-1.10" directory has a file called "configure" in it. Whenever software has this file, you need to run it first before running "make". We are going to run it and include the directory where we want the final product to go (using the \-\-prefix flag):
+**12\.** Now, you will notice that the "samtools-1.14" directory has a file called "configure" in it. Whenever software has this file, you need to run it first before running "make". We are going to run it and include the directory (use your home directory) where we want the final product to go (using the \-\-prefix flag):
 
-	./configure --prefix=/share/workshop/$USER/software/samtools
+	./configure --prefix=/home/joshi/software/samtools_install
 
 This will scan your system and make sure it has all of the necessary components to compile samtools. Once that is done, run make:
 
@@ -127,8 +127,13 @@ This will take a few minutes.
 
 Now if you go into that directory you should see two new directories, "share" and "bin". The "bin" directory contains the final executables generated by "make". The "share" directory contains manual pages for the "man" command. 
 
-	cd /share/workshop/$USER/software/samtools
+	cd ~/software/samtools_install
 	ls
 	ls bin
 
 Now, as an exercise, add the correct directory to your path so that you can run samtools from anywhere.
+
+
+## Using cmake
+
+Now we will compile a piece of software using cmake. cmake is another build system (like make) that is used for compiling and installing software. It basically sets up the build environment for make so that it can easily run on multple systems. First, let's get 
