@@ -136,4 +136,27 @@ Now, as an exercise, add the correct directory to your path so that you can run 
 
 ## Using cmake
 
-Now we will compile a piece of software using cmake. cmake is another build system (like make) that is used for compiling and installing software. It basically sets up the build environment for make so that it can easily run on multple systems. First, let's get 
+Now we will compile a piece of software using cmake. cmake is another build system (like make) that is used for compiling and installing software. It basically sets up the build environment for make so that it can easily run on multple systems. First, let's clone the 'megahit' software github repo.
+
+	cd ~/software
+	git clone https://github.com/voutcn/megahit.git
+
+Go into the directory and look around
+
+	cd megahit
+	ls
+
+Create a megahit install directory in software. Create a directory called "build" and go into it.
+
+	mkdir ../megahit_install
+	mkdir build
+	cd build
+
+From the build directory, we are going to run cmake using the CMAKE_INSTALL_PREFIX option:
+
+	cmake -DCMAKE_INSTALL_PREFIX=/home/joshi/software/megahit_install ..
+
+Once cmake is done, then we run 'make' and 'make install' as before:
+
+	make
+	make install
