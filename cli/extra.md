@@ -10,27 +10,25 @@ Find is a very powerful command that is used to recursively find files/directori
 
 Notice there are LOTS of options. The simplest version of the find command will simply list every file and directory within a path, as far down as it can go:
 
-    find /share/biocore/joshi/projects/genomes
+    find /usr/lib
 
-If we want to refine the command to only show you files that end in ".fa" (i.e. fasta files), we use the "-name" option:
+If we want to refine the command to only show you files that end in ".so", we use the "-name" option:
 
-    find /share/biocore/joshi/projects/genomes -name "*.fa"
+    find /usr/lib -name "*.so"
 
 One of the most powerful uses of find is to execute commands on every file it finds. To do this, you use the "-exec" option. When you use that option, everything after the "-exec" is assumed to be a command, and you use the "{}" characters to substitute for the file names that it finds. So in the command below, "wc -l" will get executed sequentially for every file it finds. Finally, the exec option needs to end with a semi-colon, however, since the semi-colon is a special character that the shell will try to interpret, you need to "escape" the semi-colon with a backslash, to indicate to the shell that the semi-colon is NOT to be interpreted and just sent as is to the find command:
 
-    find /share/biocore/joshi/projects/genomes -name "*.fa" -exec wc -l {} \;
+    find /usr/lib -name "*.so" -exec wc -l {} \;
 
 You will probably want to Ctrl-C out of this because it will take a long time to go through them all.
 
-**HARD CHALLENGE:**
-Use the "find" command to find all the files ending in ".pm" in the /software/perl-libs directory. Then, pipe that to a while loop to grep for all occurences (case insensitive) of the word "blast" in those files. The grep should also output the file name. You will probably have to look at the man page for grep.
 
 Xargs
 ------
 
 xargs is another command that can be very useful for running a program on a long list of files. For example, the "find" commands we ran above could be run using xargs like this:
 
-    find /share/biocore/joshi/projects/genomes -name "*.fa" | xargs wc -l
+    find /usr/lib -name "*.so" | xargs wc -l
 
 This is taking the output of the find command and then creating a list of all the filenames which it adds to the command given to xargs. So, in this case, after "xargs" comes "wc -l"... so "wc -l" will get run on the entire list of filenames from find.
 
@@ -185,7 +183,6 @@ Or if you want to print a count variable appended to a column, you can use a cou
 
 Take a look at the [awk manual](https://www.gnu.org/software/gawk/manual/gawk.html) to learn more about the capabilities of awk.
 
-**HARD CHALLENGE**:
-Go through the list of genomes (as in the Find section) and this time only search down a maximum of 6 directories and also follow symbolic links in the search. Then extract only those files that are part of either the zebrafish or C. elegans genomes. For each of those files, get the number of characters in the file and then only print files whose character count is less than 10000. You will have to probably use find, grep, xargs, wc, and awk. You will need to look at the manual pages for each of those commands. You should be able to do this just using pipes and the commands (i.e. no intermediate files).
+
 
 
