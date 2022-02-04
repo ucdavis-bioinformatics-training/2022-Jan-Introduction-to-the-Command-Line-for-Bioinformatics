@@ -1,6 +1,26 @@
 Installing Simple Bioinformatics Software
 ===========================================
 
+**RUN THESE COMMANDS FIRST!**
+
+## For Ubuntu on Windows
+
+	sudo apt update
+	sudo apt upgrade
+	sudo aptitude install gcc
+	sudo aptitude install libncurses5-de
+	sudo aptitude install zlib1g-dev
+	sudo aptitude install libbz2-dev
+	sudo aptitude install liblzma-dev
+	sudo aptitude install libcurl4-gnutls-dev
+	sudo aptitude install g++
+	sudo aptitude install libhdf5-dev
+	sudo aptitude install autoconf
+	sudo aptitude install cmake
+
+
+---
+
 **1\.** Let's spend some time installing software. We will first install an Illumina read trimmer called **sickle** written by members of the Bioinformatics Core. The source code for many bioinformatics software are on github.... sickle is found on the [Bioinformatics Core github page](https://github.com/ucdavis-bioinformatics).
 
 ---
@@ -109,7 +129,7 @@ This creates a new, empty "samtools_install" directory in our previously created
 
 ---
 
-**12\.** Now, you will notice that the "samtools-1.14" directory has a file called "configure" in it. Whenever software has this file, you need to run it first before running "make". We are going to run it and include the directory (use your home directory) where we want the final product to go (using the \-\-prefix flag):
+**12\.** Now, you will notice that the "samtools-1.14" directory has a file called "configure" in it. Whenever software has this file, you need to run it first before running "make". We are going to run it and include the directory (use your home directory) where we want the final product to go (using the \-\-prefix flag). Mac users will have a path like "/Users/joshi/software/samtools_install".:
 
 	./configure --prefix=/home/joshi/software/samtools_install
 
@@ -139,22 +159,62 @@ Now, as an exercise, add the correct directory to your path so that you can run 
 Now we will compile a piece of software using cmake. cmake is another build system (like make) that is used for compiling and installing software. It basically sets up the build environment for make so that it can easily run on multple systems. First, let's clone the 'megahit' software github repo.
 
 	cd ~/software
-	git clone https://github.com/voutcn/megahit.git
+	git clone https://github.com/s4hts/HTStream.git
 
 Go into the directory and look around
 
-	cd megahit
+	cd HTStream
 	ls
 
-Create a megahit install directory in software. Create a directory called "build" and go into it.
+Create a HTStream install directory in software. Create a directory called "build" and go into it.
 
-	mkdir ../megahit_install
+	mkdir ../hts_install
 	mkdir build
 	cd build
 
 From the build directory, we are going to run cmake using the CMAKE_INSTALL_PREFIX option:
 
-	cmake -DCMAKE_INSTALL_PREFIX=/home/joshi/software/megahit_install ..
+	cmake -DCMAKE_INSTALL_PREFIX=/home/joshi/software/hts_install ..
+
+What happened? This failed because you are missing a library. You should see an error something like this:
+
+<div class="output">
+CMake Error at /usr/share/cmake-3.16/Modules/FindPackageHandleStandardArgs.cmake:146 (message):
+  Could NOT find Boost (missing: Boost_INCLUDE_DIR system program_options
+  filesystem iostreams) (Required is at least version "1.56")
+Call Stack (most recent call first):
+  /usr/share/cmake-3.16/Modules/FindPackageHandleStandardArgs.cmake:393 (_FPHSA_FAILURE_MESSAGE)
+  /usr/share/cmake-3.16/Modules/FindBoost.cmake:2179 (find_package_handle_standard_args)
+  common/CMakeLists.txt:26 (FIND_PACKAGE)
+
+
+-- Configuring incomplete, errors occurred!
+See also "/home/joshi/software/HTStream/build/CMakeFiles/CMakeOutput.log".
+</div>
+
+The library that is missing is called "boost". To search for the library, you can use these commands:
+
+For Ubuntu:
+
+	aptitude search boost
+
+For Macs:
+
+	brew search boost
+
+Find the packages you need and install them:
+
+For Ubuntu:
+
+	aptitude install libboost-all-dev
+
+For Macs:
+
+	brew install boost
+
+Then run cmake again:
+
+	cmake -DCMAKE_INSTALL_PREFIX=/home/joshi/software/hts_install ..
 
 Once cmake is done, then we run 'make' and 'make install' as before:
 
